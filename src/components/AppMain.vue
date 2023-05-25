@@ -2,12 +2,12 @@
     <main>
         <div class="container">
             <div class="row my-4 gy-4">
-                <div class="col col-md-4" v-for="projects in data">
+                <div class="col col-md-4" v-for="project in data">
                     <div class="card">
-                        <img src="#" class="card-img-top">
+                        <img v-if="project.image" :src="project.image" class="card-img-top">
                         <div class="card-body">
-                            <h5 class="card-title">{{ projects.project_name }}</h5>
-                            <p class="card-text">{{ projects.description }}</p>
+                            <h5 class="card-title">{{ project.project_name }}</h5>
+                            <p class="card-text">{{ project.description }}</p>
                         </div>
                     </div>
                 </div>

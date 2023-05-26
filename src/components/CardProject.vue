@@ -4,6 +4,9 @@
         <div class="card-body">
             <h5 class="card-title">{{ project.project_name }}</h5>
             <p class="card-text">{{ project.description }}</p>
+            <router-link :to="{ name: 'show', params: { slug: project.slug } }" class="btn btn-primary">
+                Show
+            </router-link>
         </div>
     </div>
 </template>

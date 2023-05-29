@@ -32,10 +32,10 @@ export default {
         getProject() {
             axios.get(this.apiBaseUrl + this.apiUrls.projects + "/" + this.$route.params.slug)
                 .then((response) => {
-                    if (response.data.success) {
-                        this.project = response.data.results
-                    } else {
-                        // this.$router.push({ name: 'not-found' })
+                    this.project = response.data.results
+                }).catch((error) => {
+                    if (error.response.status === 404) {
+                        this.$router.push({ name: 'not-found' });
                     }
                 })
         }

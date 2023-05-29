@@ -4,7 +4,8 @@ import AppHome from './pages/AppHome.vue';
 import AppAbout from './pages/AppAbout.vue';
 import ProjectList from './pages/ProjectList.vue';
 import ShowProject from './pages/ShowProject.vue';
-import NotFound from './pages/NotFound.vue'
+import NotFound from './pages/NotFound.vue';
+import TypePage from './pages/TypePage.vue'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -28,6 +29,11 @@ const router = createRouter({
             path: '/project/:slug',
             name: 'show',
             component: ShowProject
+        },
+        {
+            path: '/types/:slug',
+            name: 'type',
+            component: TypePage
         },
         {
             path: '/:pathMatch(.*)*',

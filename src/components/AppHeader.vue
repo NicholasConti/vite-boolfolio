@@ -20,6 +20,9 @@
                                 Projects
                             </router-link>
                         </li>
+                        <li>
+                            <TypeList />
+                        </li>
                     </ul>
                 </nav>
             </div>
@@ -28,9 +31,11 @@
 </template>
 
 <script>
-export default {
-    name: 'AppHeader'
+import TypeList from './TypeList.vue';
 
+export default {
+    name: "AppHeader",
+    components: { TypeList }
 }
 </script>
 

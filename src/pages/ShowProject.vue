@@ -6,8 +6,11 @@
                 <img v-if="project.image" :src="project.image" class="card-img-top">
                 <div class="card-body">
                     <p class="card-text">{{ project.description }}</p>
+                    <div class="my-3" v-show="project.technologies.length">
+                        <span class="badge text-bg-success me-1" v-for="tech in project.technologies">{{ tech.name }}</span>
+                    </div>
                     <router-link :to="{ name: 'projects' }" class="btn btn-primary">
-                        Backs
+                        Back
                     </router-link>
                 </div>
             </div>
@@ -25,7 +28,7 @@ export default {
             apiUrls: {
                 projects: '/projects'
             },
-            project: []
+            project: null
         }
     },
     methods: {
@@ -33,6 +36,7 @@ export default {
             axios.get(this.apiBaseUrl + this.apiUrls.projects + "/" + this.$route.params.slug)
                 .then((response) => {
                     this.project = response.data.results
+                    // console.log(this.project)
                 }).catch((error) => {
                     if (error.response.status === 404) {
                         this.$router.push({ name: 'not-found' });

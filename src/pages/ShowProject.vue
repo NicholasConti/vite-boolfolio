@@ -1,6 +1,6 @@
 <template>
     <section>
-        <div class="container">
+        <div class="container" v-if="project">
             <h2>{{ project.project_name }}</h2>
             <div class="card">
                 <img v-if="project.image" :src="project.image" class="card-img-top">

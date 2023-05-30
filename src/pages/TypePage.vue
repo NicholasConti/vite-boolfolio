@@ -1,9 +1,9 @@
 <template>
     <section>
-        <div class="container">
-            <h1>TYPE: {{ this.type.name }}</h1>
+        <div class="container" v-if="type">
+            <h1 v-if="type.projects">TYPE: {{ type.name }}</h1>
 
-            <ul v-if="type.projects.length > 0">
+            <ul v-if="type.projects">
                 <li v-for="project in type.projects">
                     {{ project.project_name }}
                     <router-link :to="{ name: 'show', params: { slug: project.slug } }" class="btn btn-primary">

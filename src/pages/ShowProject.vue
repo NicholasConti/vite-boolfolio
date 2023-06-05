@@ -82,11 +82,13 @@ export default {
             axios.post(`${this.store.apiBaseUrl}/messages`, data).then((response) => {
                 if (response.status === 201) {
                     this.project.messages.push(response.data);
-                    this.formData.author = '';
-                    this.formData.email = '';
-                    this.formData.message = '';
+                    // this.formData.author = '';
+                    // this.formData.email = '';
+                    // this.formData.message = '';
                 }
-            })
+            }).catch((error) => {
+                console.log(error)
+            });
         }
     },
     created() {
